@@ -1,0 +1,49 @@
+{
+  "name": "@seznam/pocitadlo-libi-se-react",
+  "version": "1.0.0",
+  "description": "Integration for the social Líbí se button by Seznam.cz for React-powered apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint . --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seznam/pocitadlo-libi-se-react.git"
+  },
+  "keywords": [
+    "libi",
+    "se",
+    "líbí",
+    "se",
+    "seznam",
+    "seznam.cz",
+    "react",
+    "component",
+    "universal",
+    "isomorphic"
+  ],
+  "author": "Martin Jurča <martin.jurca@firma.seznam.cz>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seznam/pocitadlo-libi-se-react/issues"
+  },
+  "homepage": "https://github.com/seznam/pocitadlo-libi-se-react#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.55",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@seznam/pocitadlo-libi-se-common": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
+  }
+}
