@@ -50,6 +50,6 @@
     "@seznam/pocitadlo-libi-se-common": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "^17.0.1"
+    "react": ">=16.0.0"
   }
 }
