@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Integration for the social Líbí se button by Seznam.cz for React-powered apps.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "eslint . --ext .ts"
   },
