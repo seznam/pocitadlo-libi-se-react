@@ -13,31 +13,16 @@ type ElementProps =
   { class?: string }
 
 export default function PocitadloLibiSe (props: Props): ReactElement {
-  const { analytics, className, colors, placeholderHTML, ...otherProps } = props
-  const elementProps: ElementProps = otherProps
+  const { className, colors, placeholderHTML, ...otherProps } = props
+  const elementProps: ElementProps = PocitadloLibiSeCommon.createElementAttributes(otherProps)
   if (typeof className === 'string') {
     elementProps.class = className
   }
-  if (analytics) {
-    if (analytics.payload !== undefined) {
-      try {
-        const serializedPayload = JSON.stringify(analytics.payload)
-        elementProps[PocitadloLibiSeCommon.ButtonElementAttributeName.ANALYTICS_HIT_PAYLOAD] = serializedPayload
-      } catch {}
-    }
-    if (typeof analytics.position === 'string') {
-      elementProps[PocitadloLibiSeCommon.ButtonElementAttributeName.ANALYTICS_HIT_BUTTON_POSITION] = analytics.position
-    }
-  }
   if (colors) {
-    elementProps.style = elementProps.style || {}
-    // We're targeting polyfill-free IE9+ environment when it comes to APIs, that's why we don't use Object.entries()
-    for (const colorName of Object.keys(colors) as Array<keyof typeof colors>) {
-      (elementProps.style as any)[`--${colorName}`] = colors[colorName]
-    }
+    elementProps.style = Object.assign(elementProps.style || {}, colors)
   }
-  otherProps.suppressHydrationWarning = true
-  otherProps.dangerouslySetInnerHTML = {
+  elementProps.suppressHydrationWarning = true
+  elementProps.dangerouslySetInnerHTML = {
     __html: typeof placeholderHTML === 'string' ? placeholderHTML : ''
   }
   return createElement(
