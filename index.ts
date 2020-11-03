@@ -1,5 +1,5 @@
 import * as PocitadloLibiSeCommon from '@seznam/pocitadlo-libi-se-common'
-import { createElement, HTMLAttributes, memo, ReactElement } from 'react'
+import { createElement, HTMLAttributes, ReactElement } from 'react'
 
 export * from '@seznam/pocitadlo-libi-se-common'
 
@@ -12,7 +12,7 @@ type ElementProps =
   PocitadloLibiSeCommon.ButtonElementAttributes &
   { class?: string }
 
-export default memo(function PocitadloLibiSe (props: Props): ReactElement {
+export default function PocitadloLibiSe (props: Props): ReactElement {
   const { analytics, className, colors, placeholderHTML, ...otherProps } = props
   const elementProps: ElementProps = otherProps
   if (typeof className === 'string') {
@@ -44,4 +44,4 @@ export default memo(function PocitadloLibiSe (props: Props): ReactElement {
     PocitadloLibiSeCommon.BUTTON_ELEMENT_NAME,
     elementProps
   )
-})
+}
