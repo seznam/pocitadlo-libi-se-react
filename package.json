@@ -2,12 +2,19 @@
   "name": "@seznam/pocitadlo-libi-se-react",
   "version": "1.0.0",
   "description": "Integration for the social Líbí se button by Seznam.cz for React-powered apps.",
-  "main": "index.js",
+  "module": "./esm/index.js",
+  "main": "./cjs/index.cjs",
   "type": "module",
+  "types": "./esm/index.d.ts",
+  "exports": {
+    "import": "./esm/index.js",
+    "require": "./cjs/index.cjs"
+  },
   "scripts": {
-    "build": "rm -rf dist/ && npm run compile && cp LICENSE package.json README.md dist/",
+    "build": "rm -rf dist/ && npm run compile:esm && npm run compile:cjs && cp LICENSE package.json README.md dist/",
     "test": "eslint . --ext .ts",
-    "compile": "tsc --project .",
+    "compile:esm": "tsc --outDir ./dist/esm/ --project .",
+    "compile:cjs": "tsc --outDir ./dist/cjs/ --module CommonJS --target ES5 --project . && mv ./dist/cjs/index.js ./dist/cjs/index.cjs",
     "check-uncommitted": "git diff --exit-code >/dev/null && git diff --cached --exit-code >/dev/null",
     "prepublishOnly": "echo 'Use npm run publish-package' && exit 1",
     "publish-package": "npm run check-uncommitted && npm run build && git push && git push --tags && npm publish dist --ignore-scripts --access public"
@@ -47,7 +54,7 @@
     "typescript": "^4.0.5"
   },
   "dependencies": {
-    "@seznam/pocitadlo-libi-se-common": "^1.1.0"
+    "@seznam/pocitadlo-libi-se-common": "^1.1.2"
   },
   "peerDependencies": {
     "react": ">=16.0.0"

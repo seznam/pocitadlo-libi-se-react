@@ -6,6 +6,10 @@
     "outDir": "./dist/",
     "rootDir": "./",
 
+    "lib": [
+      "ES2015"
+    ],
+
     "strict": true,
 
     "noUnusedLocals": true,
