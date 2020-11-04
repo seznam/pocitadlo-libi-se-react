@@ -1,6 +1,6 @@
 {
   "name": "@seznam/pocitadlo-libi-se-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Integration for the social Líbí se button by Seznam.cz for React-powered apps.",
   "module": "./esm/index.js",
   "main": "./cjs/index.cjs",
